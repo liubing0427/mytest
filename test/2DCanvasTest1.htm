@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>  
+<head>
+<title>transform示例title>  
+<script type="text/javascript">
+function draw(){  
+	var canvas=document.getElementById('canvas');  
+	if(canvas==null)  
+	return false;  
+	var context=canvas.getContext('2d');  
+	context.transform(1,0,0,1,200,150);  
+	context.beginPath();//丢弃任何当前定义的路径并且开始一条新的路径。它把当前的点设置为 (0,0)。
+	context.fillStyle='rgba(255,0,0,0.25)'; //fillStyle 属性设置或返回用于填充绘画的颜色、渐变或模式。context.fillStyle=color|gradient|pattern; 
+	rad=Math.PI/10;  
+	for(i=0;i<20;i++){  
+		context.fillRect(0,0,100,100);//绘制或填充一个矩形。
+		context.transform(Math.cos(rad),Math.sin(rad),-Math.sin(rad),Math.cos(rad),0,0);  
+		context.closePath();  
+	}  
+	context.fill();  
+}
+</script>  
+</head>  
+<body onload="draw()">  
+<canvas id="canvas" width="400" height="300" />  
+</body>  
+</html> 
