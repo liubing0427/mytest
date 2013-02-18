@@ -66,7 +66,8 @@ if(canvas!=null)
       time.push('0');  
     }  
     time.push(seconds);
-    ctx.fillText(time.join(''), 50, 105);
+    ctx.font="bolder 20px Arial";
+    ctx.fillText(time.join(''), 57, 105);
   }
   drawClock();
   setInterval(drawClock, 1000);
