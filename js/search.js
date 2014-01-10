@@ -30,15 +30,15 @@ function getdata()
     var oUl = document.getElementById('st');
     var oScript = null ;
     oUl.innerHTML = '' ;
-//避免造成代码冗余，出现众多script标签（由于每输入一个字符，就会动态生成script标签，因此每次需要清除上一次遗留下的script标签）
-if(oScript)
-{
-    document.body.removeChild(oScript);
-}       
-oScript = document.createElement('script');
-//其中‘wd’是搜索的关键字，‘cb’是一个回调函数，该回调函数是我们取到数据要后执行的函数，oScript.src中cb=baidu即表示取到数据后执行baidu函数
-oScript.src = 'http://suggestion.baidu.com/su?wd='+oTxt.value+'&p=3&cb=baidu&from=superpage';
-document.body.appendChild(oScript);
+    //避免造成代码冗余，出现众多script标签（由于每输入一个字符，就会动态生成script标签，因此每次需要清除上一次遗留下的script标签）
+    if(oScript)
+    {
+        document.body.removeChild(oScript);
+    }       
+    oScript = document.createElement('script');
+    //其中‘wd’是搜索的关键字，‘cb’是一个回调函数，该回调函数是我们取到数据要后执行的函数，oScript.src中cb=baidu即表示取到数据后执行baidu函数
+    oScript.src = 'http://suggestion.baidu.com/su?wd='+oTxt.value+'&p=3&cb=baidu&from=superpage';
+    document.body.appendChild(oScript);
 }
 
 //回调时调用的函数，将取得的联想词展示出来
@@ -132,14 +132,15 @@ document.onkeydown = function(e) {
 }
 
 function Show_Hidden(trid){
-  if(document.getElementById("lst-ib").value!="")
-  {
-    document.getElementById("tr1").innerText = '根据相关法律法规和政策，"'+document.getElementById("lst-ib").value+'"的搜索结果未予显示';
-    trid.style.display='block';
-}
-else
-{
-    document.getElementById("tr1").innerText = '';
-    trid.style.display='none';
-}
+    if(document.getElementById("lst-ib").value!="")
+    {
+        document.getElementById("tr1").innerText = '根据相关法律法规和政策，"'+document.getElementById("lst-ib").value+'"的搜索结果未予显示';
+        trid.style.display='block';
+        //window.location.assign("http://www.baidu.com/s?wd="+document.getElementById('lst-ib').value);
+    }
+    else
+    {
+        document.getElementById("tr1").innerText = '';
+        trid.style.display='none';
+    }
 }
