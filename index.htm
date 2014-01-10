@@ -3,64 +3,49 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-<link rel="stylesheet" type="text/css" href="css/google.com.hk.css"></link>
-<script type="text/javascript">
-function Show_Hidden(trid){
-  if(document.getElementById("lst-ib").value!="")
-	{
-		document.getElementById("tr1").innerText = '根据相关法律法规和政策，"'+document.getElementById("lst-ib").value+'"的搜索结果未予显示';
-		trid.style.display='block';
-	}
-	else
-	{
-		trid.style.display='none';
-	}
-}
-document.onkeydown = function(evt){
-				var evt = window.event?window.event:evt;
-				if(evt.keyCode==13)
-				{
-					document.getElementById("btnK").click();
-					return false;
-				}
-			}
-</script>
+<link rel="stylesheet" type="text/css" href="css/search.css"></link>
+<script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
 </head>
-<body id="gsr">
+<body id="gsr" class="hp">
 <div>
 <span class="ctr-p" id="body">
 <center>
 	<center>
-		<div class="jhp" id="searchform" style="margin-top: -2px;">   
+		<div class="jhp big" id="searchform" style="margin-top: -2px;">   
 			<form name="f" id="tsf" style="display: block;"> 
-				<div style="padding-top: 3px; padding-bottom: 2px;"> 
-					<table width="100%" border="0" cellspacing="0" cellpadding="0"> 
-						<tbody>
-							<tr> 
-								<td width="100%"> 
-									<table width="100%" style="border-bottom-color: transparent; border-bottom-width: 1px; border-bottom-style: solid; position: relative;" border="0" cellspacing="0" cellpadding="0"> 
-										<tbody>
-											<tr> 
-												<td width="100%" class="lst-td" id="sftab" style="border: 0px currentColor;"> 
-													<div class="lst-d lst-tbb">  
-														<input name="q" title="Harmony 搜索" class="lst lst-tbb" id="lst-ib" type="text" size="41" maxlength="2048" value=""> 
-													</div> 
-												</td> 
-											</tr> 
-										</tbody>
-									</table> 
-								</td> 
-							</tr>
-						</tbody>
-					</table> 
-				</div> 
-				<div class="jsb" style="padding-top: 2px;"> 
-					<center>  
-						<button id="btnK" type="button" onclick="Show_Hidden(tr1)">Harmony 搜索</button> 
-					</center> 
-				</div>
-				<div>
-				<p class="result" id="tr1" style="display:none;"></p>
+				<div class="tsf-p" style="position:relative">
+					<div style="padding-top: 3px; padding-bottom: 2px;"> 
+						<table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+							<tbody>
+								<tr> 
+									<td width="100%"> 
+										<table width="100%" style="border-bottom-color: transparent; border-bottom-width: 1px; border-bottom-style: solid; position: relative;" border="0" cellspacing="0" cellpadding="0"> 
+											<tbody>
+												<tr> 
+													<td width="100%" class="lst-td" id="sftab" style="border: 0px currentColor;"> 
+														<div class="lst-d lst-tbb">  
+															<input name="q" title="Harmony 搜索" class="lst lst-tbb" id="lst-ib" type="text" size="41" maxlength="2048" value="" autocomplete="off">
+															<div id="st" cellspacing="0" cellpadding="2">
+															</div>														
+														</div> 
+													</td> 
+												</tr> 
+											</tbody>
+										</table> 
+									</td> 
+								</tr>
+							</tbody>
+						</table> 
+					</div> 
+					<div class="jsb" style="padding-top: 2px;"> 
+						<center>  
+							<button id="btnK" type="button" onclick="Show_Hidden(tr1)">Harmony 搜索</button> 
+						</center> 
+					</div>
+					<div>
+					<p class="result" id="tr1" style="display:none;"></p>
+					</div>
 				</div>
 			</form>  
 		</div>
