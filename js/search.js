@@ -1,7 +1,10 @@
 var flag = true;
 var index = -1;
 window.onload = function ()
-{
+{ 
+    var time = new Date();
+    var year = time.getFullYear();
+    document.getElementById("cp").innerHTML = '©'+year+' <a href="http://www.daoimpl.com">BingLiu</a>';
     var oTxt = document.getElementById('lst-ib');
     oTxt.onkeyup = function(e)
     {
@@ -22,6 +25,91 @@ window.onload = function ()
             document.getElementById("tr1").innerText = '';
         }
     });
+    var sethfPos=sethfPos||0;
+    (function() {
+        var p="http://search.daoimpl.com/",
+        m=(navigator.userAgent.indexOf("MSIE")!=-1 || navigator.userAgent.indexOf("Trident")!=-1)&&!window.opera,
+        q=Math.random()*100,
+        u="和谐搜索",
+        c="";
+        window.fa=function(x){
+            try{
+                if(window.sidebar){
+                    window.sidebar.addPanel(u,p,"")
+                }
+                else {
+                    if(window.opera&&window.print){
+                        x.setAttribute("rel","sidebar");
+                        x.setAttribute("href",p);
+                        x.setAttribute("title",u);
+                        x.click()
+                    }
+                    else {
+                        window.external.AddFavorite(p,u)
+                    }
+                }
+            }
+            catch(w) {}
+        };
+        function d(x) {
+                if(x){
+                    var w=x.parentNode;
+                    if(w){
+                        w.style.marginBottom="20px";
+                        w.style.marginTop="2px"
+                    }
+                }
+        }
+        if(m) {
+            try{
+                var v=/se /gi.test(navigator.userAgent);
+                var n=/AppleWebKit/gi.test(navigator.userAgent)&&/theworld/gi.test(navigator.userAgent);
+                var j=/theworld/gi.test(navigator.userAgent);
+                var o=/360se/gi.test(navigator.userAgent);
+                var a=/360chrome/gi.test(navigator.userAgent);
+                var f=/greenbrowser/gi.test(navigator.userAgent);
+                var s=/qqbrowser/gi.test(navigator.userAgent);
+                var l=/tencenttraveler/gi.test(navigator.userAgent);
+                var i=/maxthon/gi.test(navigator.userAgent);
+                var t=/krbrowser/gi.test(navigator.userAgent);
+                var k=/BIDUBrowser/gi.test(navigator.userAgent)&&(typeof window.external.GetVersion!="undefined");
+                var b=false;
+                try{
+                    b=+external.twGetVersion(external.twGetSecurityID(window)).replace(/\./g,"")>1013
+                }catch(r) {}
+                if(v||b||n||j||o||a||f||s||l||i||t||k) {
+                var h=sethfPos?document.getElementById("set_f"): document.getElementById("setf");
+                    if(h){
+                        h.style.display="inline";
+                        if(sethfPos){
+                            d(h);c="favorites"
+                        }
+                    }
+                }
+                else {
+                    var g=sethfPos?document.getElementById("set_h"): document.getElementById("seth");
+                    if(g){
+                        g.style.display="inline";
+                        if(sethfPos){
+                            d(g);c="home"
+                        }
+                    }
+                }
+            }
+            catch(r) {}
+        }
+        else {
+            var h=sethfPos?document.getElementById("set_f"): document.getElementById("setf");
+            if(h){
+                h.style.display="inline"
+            }
+            if(sethfPos) {
+                d(h);c="favorites"
+            }
+        }
+        if(c&&sethfPos) {
+        }
+    })();
 }
 
 function getdata()
@@ -86,47 +174,49 @@ function sIndex(index) {
 
 document.onkeydown = function(e) {
     var suglist = document.getElementById("suglist");
-    e = e || window.event;
-    if (e.keyCode == 9 || e.keyCode == 27) {
-        if ($(suglist))
-        {
-            $(suglist).hide();
-        }
-    } else if (e.keyCode == 13) {
-        //me.addStat("rsv_sug2", 0);
-        if ($(suglist))
-        {
-            $(suglist).hide();
-        }
-        document.getElementById("btnK").click();
-        return false;
-    } else if (e.keyCode == 86 && e.ctrlKey) {
-        //me.addStat("rsv_n", 2)
-    } else if ($(suglist)) {
-        if (e.keyCode == 38) {
-            flag = false;
-            e.preventDefault();
-            var n = $(suglist).find("li").length;
-            index--;
-            if (index < -1) {
-                index = n - 1
+    if(suglist){
+        e = e || window.event;
+        if (e.keyCode == 9 || e.keyCode == 27) {
+            if ($(suglist))
+            {
+                $(suglist).hide();
             }
-            sIndex(index);
-        }
-        if (e.keyCode == 40) {
-            flag = false;
-            e.preventDefault();
-            var n = $(suglist).find("li").length;
-            index++;
-            if (index >= n) {
-                index = -1
+        } else if (e.keyCode == 13) {
+            //me.addStat("rsv_sug2", 0);
+            if ($(suglist))
+            {
+                $(suglist).hide();
             }
-            sIndex(index);
-        }
-    } else {
-        if (e.keyCode == 38 || e.keyCode == 40) {
-            e.preventDefault();
-            getdata();
+            document.getElementById("btnK").click();
+            return false;
+        } else if (e.keyCode == 86 && e.ctrlKey) {
+            //me.addStat("rsv_n", 2)
+        } else if ($(suglist)) {
+            if (e.keyCode == 38) {
+                flag = false;
+                e.preventDefault();
+                var n = $(suglist).find("li").length;
+                index--;
+                if (index < -1) {
+                    index = n - 1
+                }
+                sIndex(index);
+            }
+            if (e.keyCode == 40) {
+                flag = false;
+                e.preventDefault();
+                var n = $(suglist).find("li").length;
+                index++;
+                if (index >= n) {
+                    index = -1
+                }
+                sIndex(index);
+            }
+        } else {
+            if (e.keyCode == 38 || e.keyCode == 40) {
+                e.preventDefault();
+                getdata();
+            }
         }
     }
 }
@@ -144,3 +234,9 @@ function Show_Hidden(trid){
         trid.style.display='none';
     }
 }
+
+function h(obj){
+    obj.style.behavior='url(#default#homepage)';
+    var a = obj.setHomePage('http://search.daoimpl.com/');
+}
+
