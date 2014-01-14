@@ -292,6 +292,7 @@
     </div>
 <div id="foot"></div>
 </div>
+<script type="text/javascript" src="../js/jquery-2.0.2.min.js"></script>
 <script type="text/javascript">
 function G(id){
     return document.getElementById(id);
@@ -425,5 +426,40 @@ function query(j) {
     }
     return k
 };
+</script>
+<style>
+.backToTop {
+    display: none;
+    WIDTH: 45px;
+    height:45px;
+    BOTTOM: 20px;
+     position: fixed;
+    _position: absolute;
+    right: 140px;
+    bottom: 10px;
+    _bottom: "auto";
+    cursor: pointer;
+    opacity: .6;
+    filter: Alpha(opacity=60);
+    text-indent:-9999px;
+}
+.tops { background:url(../image/topq.jpg) no-repeat center center; }
+</style>
+<script type="text/javascript">
+(function() {
+    var backToTopTxt = "返回顶部", backToTopEle = $('<div class="backToTop tops"></div>').appendTo($("body"))
+        .text(backToTopTxt).attr("title", backToTopTxt).click(function() {
+            $("html, body").animate({ scrollTop: 0 }, 520);
+    }), backToTopFun = function() {
+        var st = $(document).scrollTop(), winh = $(window).height();
+        (st > 0)? backToTopEle.show(): backToTopEle.hide();    
+        //IE6下的定位
+        if (!window.XMLHttpRequest) {
+            backToTopEle.css("top", st + winh - 60);    
+        }
+    };
+    $(window).bind("scroll", backToTopFun);
+    $(function() { backToTopFun(); });
+})();
 </script>
 </body></html>
