@@ -9,7 +9,7 @@ div {
 form {
 	padding-bottom: 14px
 }
-
+	
 body,td,a,p,.h {
 	font-family: arial,sans-serif
 }
@@ -25,7 +25,6 @@ body,td,a,p,.h {
 
 .lst {
 	height: 20px;
-	width: 496px
 }
 
 #lst-ib:hover {
@@ -38,9 +37,8 @@ body,td,a,p,.h {
 
 .ctr-p {
 	margin: 0 auto;
-	min-height: 100%;
-	min-width: 100%;
 	padding-bottom: 100px;
+	text-align: center;
 }
 
 .jhp input[type="submit"] {
@@ -86,6 +84,7 @@ body,td,a,p,.h {
 
 html, body {
 	height: 100%;
+	width: 100%;
 }
 
 body {
@@ -116,6 +115,7 @@ h1,ol,ul,li {
 	border: 1px solid #d9d9d9;
 	border-top-color: #c0c0c0;
 	height: 27px;
+	text-align: start;
 }
 
 .lst-d:hover {
@@ -128,7 +128,7 @@ h1,ol,ul,li {
 }
 
 .lst {
-	width: 90%;
+	width: 97%;
 	border: 0;
 	padding-left: 6px;
 	padding-right: 10px;
@@ -146,9 +146,6 @@ h1,ol,ul,li {
 	height: 26px;
 	padding: 0;
 	background: #fff
-}
-
-.lst-td {
 }
 
 button[name="btnG"],.tsf-p .lsb:active {
@@ -172,40 +169,16 @@ input {
 
 #searchform {
 	top: 250px;
-	width: 100%;
-}
-
-.big .tsf-p {
-	padding-left: 126px;
-	padding-right: 352px
-}
-
-.jhp .tsf-p {
-	padding-left: 173px;
-	padding-right: 173px
+	width: 720px;
+	margin: 0 auto;
 }
 
 .jhp #tsf {
-	width: 100%;
-	margin: 0 auto
-}
-
-#tsf {
-	width: 100%;
-}
-
-.big #tsf,.big.jhp #tsf {
-	width: 100%;
-}
-
-.tsf-p {
-	padding-left: 126px;
-	padding-right: 46px
+	width: 600px;
+	margin: 0 auto;
 }
 
 .big.jhp .tsf-p {
-	padding-left: 284px;
-	padding-right: 284px
 }
 
 #tr1 {
@@ -237,12 +210,12 @@ li.bdsug-s {
 	margin: 0 auto;
 	z-index: 0;
 	overflow: hidden;
+	min-width: 720px;
 }
 
 #ftConw {
 	width: 720px;
 	margin: 0 auto;
-	text-align: center;
 	font: 12px arial;
 }
 
@@ -264,4 +237,14 @@ li.bdsug-s {
 #lm {
 	height: 60px;
 	line-height: 15px;
+}
+
+.tab-f{
+}
+
+#lga{
+	width: 720px;
+	height: 231px; 
+	margin-top: 50px;
+	margin: 0 auto;
 }
